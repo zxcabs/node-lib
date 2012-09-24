@@ -36,8 +36,8 @@ describe('proxy', function () {
 		});
 		
 		it('should call bar() and return "bar"', function () {
-			var p = proxy(obj, function (name, args) {
-				obj[name].call(null, args).should.eql('bar');
+			var p = proxy(obj, function (name, args, fn) {
+				fn.call(null, args).should.eql('bar');
 			});
 			p.bar(1,2,3);
 		});
@@ -47,6 +47,15 @@ describe('proxy', function () {
 		it('should name === "baz"', function () {
 			var p = proxy(obj, function (name, args) {
 				name.should.equal('baz');
+			});
+			p.bar.baz();
+		});
+	});
+	
+	describe('#second lvl deeps', function () {
+		it('should call bar.baz() and return "baz"', function () {
+			var p = proxy(obj, function (name, args, fn) {
+				fn.call(null, args).should.eql('baz');
 			});
 			p.bar.baz();
 		});
