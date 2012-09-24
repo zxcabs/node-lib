@@ -1,0 +1,1 @@
+{	"name": "node-lib",	"description": "my node lib",	"version": "0.0.1",	"author": "Evgeny Reznichenko <kusakyky@gmail.com>",	"devDependencies": {		"mocha": "*",		"should": "*"	},	"keywords": [],	"repository": "https://github.com/zxcabs/node-lib",	"scripts": {		"test": "make test"	},	"engines": { "node": "*" }	}
