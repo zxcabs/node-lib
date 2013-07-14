@@ -15,4 +15,9 @@ test-rnd:
 			-r should \
 			-R spec
 
-.PHONY: test test-proxy test-rnd
+test-util:
+	@NODE_ENV=test $(MOCHA) ./test/util.js\
+			-r should \
+			-R spec
+
+.PHONY: test test-proxy test-rnd test-util
